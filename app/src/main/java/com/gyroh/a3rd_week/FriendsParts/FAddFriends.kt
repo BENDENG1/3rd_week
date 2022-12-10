@@ -42,7 +42,6 @@ class FAddFriends : Fragment() {
     }
 
     fun onBackPressed(){
-        Log.d("테스트","0")
         parentFragmentManager
             .beginTransaction()
             .remove(this)

@@ -79,7 +79,7 @@ class AddIdActivity : AppCompatActivity() {
 
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.fl_friends,friendsFragment())
+                .replace(R.id.fl_friends,friendsFragment)
                 .commit()
 
         }

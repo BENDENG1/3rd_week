@@ -127,7 +127,7 @@
                 android:textAlignment="textStart" />
 
             <Button
-                android:id="@+id/bnt_ChangeName"
+                android:id="@+id/btn_ChangeName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/btn_AddFavorite"
@@ -139,7 +139,7 @@
                 android:id="@+id/btn_Hide"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/bnt_ChangeName"
+                android:layout_below="@id/btn_ChangeName"
                 android:background="@android:color/transparent"
                 android:text="숨김"
                 android:textAlignment="textStart" />

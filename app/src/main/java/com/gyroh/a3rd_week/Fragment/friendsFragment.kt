@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.ActionMode
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,7 @@ class friendsFragment : Fragment() {
 
     val binding by lazy { FragmentFriendsBinding.inflate(layoutInflater) }
     var userList = arrayListOf<Profile>()
+
 
 
     override fun onCreateView(
@@ -58,11 +60,20 @@ class friendsFragment : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.recyclerViewProfile.setHasFixedSize(true) // 고정된 크기의 아이템ui사용 -> recyclerview에 대한 성능개선방안
 
+        val adapter = ProfileAdapter(userList)
         //어댑터 연결
-        binding.recyclerViewProfile.adapter = ProfileAdapter(userList)
+        binding.recyclerViewProfile.adapter = adapter
 
 
+        binding.button5.setOnClickListener {
+            adapter.addItem(Profile(R.drawable.ic_profile1,"가나다","가나다라마바사"))
 
+        }
+
+        //testadd()
+    }
+
+    fun testadd(){
         val profileAdapter = ProfileAdapter(userList)
 
         binding.recyclerViewProfile.setOnClickListener{
@@ -70,8 +81,16 @@ class friendsFragment : Fragment() {
         }
 
         binding.button5.setOnClickListener {
+
             Log.d("checking","1")
+            binding.rlReviseFriends.visibility = View.VISIBLE
+
+            //무슨 둘다 안되냐ㅡㅡ
             profileAdapter.profileList.add(Profile(R.drawable.ic_profile1,"가나다","가나다라마바사"))
+
+            binding.btnRemove.setOnClickListener {
+                binding.rlReviseFriends.visibility = View.GONE
+            }
         }
 
     }
@@ -81,6 +100,7 @@ class friendsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         updateData(ProfileAdapter(userList))
+
     }
 
     private fun updateData(profileAdapter: ProfileAdapter) {
@@ -88,6 +108,7 @@ class friendsFragment : Fragment() {
         var flagCheck = arguments?.getInt("flag")
         var receivename: String = arguments?.getString("name").toString()
         var receivemessage: String = arguments?.getString("message").toString()
+
         Log.d("체킹", "$flagCheck $receivename $receivemessage")
         if (flagCheck == 1) {
             profileAdapter.addItem(Profile(R.drawable.ic_add_profile,receivename,receivemessage))

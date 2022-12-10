@@ -52,6 +52,7 @@ class ProfileAdapter(var profileList : ArrayList<Profile>) : RecyclerView.Adapte
 
     fun addItem(profile: Profile){
         profileList.add(profile)
+        Log.d("테스트",profileList.toString())
         notifyDataSetChanged()
     }
 
