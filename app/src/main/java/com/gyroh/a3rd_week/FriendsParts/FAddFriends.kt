@@ -34,11 +34,12 @@ class FAddFriends : Fragment() {
             onBackPressed()
         }
         binding.ibID.setOnClickListener{
+
             val intent = Intent(context, AddIdActivity::class.java)
             startActivity(intent)
-            parentFragmentManager.beginTransaction().remove(this).commit()
+            requireActivity().finish()
+            //parentFragmentManager.beginTransaction().remove(this).commit()
         }
-
     }
 
     fun onBackPressed(){
