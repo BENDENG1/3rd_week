@@ -109,7 +109,7 @@ class friendsFragment : Fragment() {
         var receivename: String = arguments?.getString("name").toString()
         var receivemessage: String = arguments?.getString("message").toString()
 
-        Log.d("체킹", "$flagCheck $receivename $receivemessage")
+        Log.d("----", "$flagCheck $receivename $receivemessage")
         if (flagCheck == 1) {
             profileAdapter.addItem(Profile(R.drawable.ic_add_profile,receivename,receivemessage))
         }

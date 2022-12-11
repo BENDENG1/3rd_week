@@ -1,26 +1,28 @@
 package com.gyroh.a3rd_week
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.gyroh.a3rd_week.Fragment.*
+import com.gyroh.a3rd_week.FriendsParts.AddIdActivity
 import com.gyroh.a3rd_week.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
     private val binding by lazy {ActivityMainBinding.inflate(layoutInflater)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        Log.d("----", "onCreate: OPEN")
         runFragment()
-
     }
-
 
     //바텀 네비게이션 프래그먼트 움직이는 함수
     private fun runFragment() {
@@ -57,6 +59,9 @@ class MainActivity : AppCompatActivity() {
 
     //프래그먼트 전환 메소드
     private fun changeFragment(fragment: Fragment){
+        if(intent.getBundleExtra("Bundle") != null && fragment.context == friendsFragment().context) {
+            fragment.arguments = intent.getBundleExtra("Bundle")
+        }
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.frameLayout,fragment)

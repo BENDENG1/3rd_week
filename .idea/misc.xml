@@ -20,6 +20,8 @@
         <entry key="..\:/Users/hojun/AndroidStudioProjects/3rd_week/app/src/main/res/layout/item_profile.xml" value="0.33" />
         <entry key="..\:/Users/hojun/AndroidStudioProjects/3rd_week/app/src/main/res/menu/add_friends.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/hojun/AndroidStudioProjects/3rd_week/app/src/main/res/menu/bnv_menu.xml" value="0.3651041666666667" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_friends.xml" value="0.2341485507246377" />
       </map>
     </option>
   </component>
